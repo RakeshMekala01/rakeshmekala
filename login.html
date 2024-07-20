@@ -1,0 +1,96 @@
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <!-- about section -->
+  <section class="about_section layout_padding" style="margin: 100px">
+    <div class="container  ">
+      <div class="heading_container heading_center">
+      </div>
+      
+        <div class="col-md-6">
+          <h2>Login  <span> Page</span></h2>
+          <div class="detail-box">
+              <div class="container">
+                <div class="form-container" id="login-form">
+                  <form action="/login" method="post">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Login</button>
+                  </form>
+                </div>
+              </div>
+            <style>
+
+                body {
+                  font-family: 'Open Sans', sans-serif;
+                  background-image: url('static/bg.avif');
+                  background-size: cover;
+                }
+
+                .container {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                }
+
+                .form-container {
+                  width: 400px;
+                  margin: 0 auto;
+                  padding: 50px;
+                  background-color: azure;
+                  border-radius: 10px;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                  color: black;
+                }
+
+                h2 {
+                    text-align: center;
+                    font-size: 50px;
+                }
+                form {
+                  display: flex;
+                  flex-direction: column;
+                }
+
+                label {
+                  margin-bottom: 10px;
+                  font-size: 18px;
+                }
+
+                input {
+                  padding: 12px;
+                  border: none;
+                  border-radius: 5px;
+                  margin-bottom: 20px;
+                  font-size: 16px;
+                  color: black;
+                  background-color: white;
+                }
+
+                button {
+                  padding: 10px;
+                  background-color: green;
+                  color: #fff;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  font-size: 18px;
+                }
+
+            </style>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

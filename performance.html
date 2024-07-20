@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Performance</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-image: url('static/bg.avif');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #performance-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        #bar a
+        {
+            color: white;
+        }
+        .chart-container {
+            max-width: 400px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar bg-primary navbar-expand-lg navbar-red px-10 px-lg-5 py-3 py-lg-0" >
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="font-size: 30px; margin-right: 50px;">
+                <div class="navbar-nav ms-auto" id="bar">
+                    <a class="nav-link " aria-current="page"  href="/">Home</a>
+                    <a class="nav-link" href="/predict">Input</a>
+                    <a class="nav-link" href="/performance">Performance</a>
+                    <a class="nav-link" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+     
+    <div style="display: flex; justify-content: space-between;">
+        <div class="chart-container" style="flex: 1; margin-top: 200px; margin-left: 300px;">
+            <h2><b><i>Training Performance</i></b></h2>
+            <canvas id="trainingPerformanceChart" width="400" height="400"></canvas>
+        </div>
+
+        <div class="chart-container" style="flex: 1; margin-top: 200px; margin-right: 300px;">
+            <h2><b><i>Testing Performance</i></b></h2>
+            <canvas id="testingPerformanceChart" width="400" height="400"></canvas>
+        </div>
+
+        <script>
+            // Replace these values with your actual training and testing accuracy and loss
+            const trainingAccuracy = 90;
+            const trainingLoss = 10;
+            const testingAccuracy = 81;
+            const testingLoss = 19;
+
+            // Display the performance values in the console
+            console.log(`Training Accuracy: ${trainingAccuracy}%`);
+            console.log(`Training Loss: ${trainingLoss}%`);
+            console.log(`Testing Accuracy: ${testingAccuracy}%`);
+            console.log(`Testing Loss: ${testingLoss}%`);
+
+            // Create a pie chart for training performance using Chart.js
+            const trainingCtx = document.getElementById('trainingPerformanceChart').getContext('2d');
+            new Chart(trainingCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Accuracy', 'Loss'],
+                    datasets: [{
+                        data: [trainingAccuracy, trainingLoss],
+                        backgroundColor: ['#36a2eb', '#ff6384'],
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Training Performance',
+                    }
+                }
+            });
+
+            // Create a pie chart for testing performance using Chart.js
+            const testingCtx = document.getElementById('testingPerformanceChart').getContext('2d');
+            new Chart(testingCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Accuracy', 'Loss'],
+                    datasets: [{
+                        data: [testingAccuracy, testingLoss],
+                        backgroundColor: ['#36a2eb', '#ff6384'],
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Testing Performance',
+                    }
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
